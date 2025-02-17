@@ -123,3 +123,104 @@ Registradores que armazenam e movem bits, podendo operar em diferentes modos:
 - **Máquinas industriais automatizadas**  
 
 ---
+
+
+## **Passo a Passo para Montar um Circuito Sequencial no Papel**
+
+
+### **1. Escolha os Componentes**
+Os principais componentes de um circuito sequencial são:
+- **Flip-flops** (SR, D, JK, T) para armazenar estados.
+- **Portas lógicas** (AND, OR, NOT, etc.) para controlar as entradas e saídas.
+- **Clock** (sinal de temporização) para sincronizar as transições de estado.
+
+Escolha os componentes com base no objetivo do circuito.
+
+---
+
+### **2. Desenhe o Diagrama de Estados (FSM)**
+Se o circuito for uma máquina de estados finitos, desenhe o **diagrama de estados**. Ele mostra:
+- **Estados** (círculos) representando as condições do sistema.
+- **Transições** (setas) indicando como o sistema muda de um estado para outro.
+- **Entradas e saídas** associadas a cada transição.
+
+Exemplo simples de um semáforo:
+- Estados: Vermelho, Amarelo, Verde.
+- Transições: Mudanças de cor com base no tempo ou sensores.
+
+---
+
+### **3. Projete a Tabela de Estados**
+Crie uma tabela que mostre:
+- **Estado atual**.
+- **Entradas**.
+- **Próximo estado**.
+- **Saídas**.
+
+Exemplo para um flip-flop JK:
+
+| **Estado Atual (Q)** | **J** | **K** | **Próximo Estado (Q⁺)** | **Saída** |
+|----------------------|-------|-------|--------------------------|-----------|
+| 0                    | 0     | 0     | 0                        | 0         |
+| 0                    | 0     | 1     | 0                        | 0         |
+| 0                    | 1     | 0     | 1                        | 1         |
+| 0                    | 1     | 1     | 1                        | 1         |
+| 1                    | 0     | 0     | 1                        | 1         |
+| 1                    | 0     | 1     | 0                        | 0         |
+| 1                    | 1     | 0     | 1                        | 1         |
+| 1                    | 1     | 1     | 0                        | 0         |
+
+---
+
+### **4. Desenhe o Circuito no Papel**
+Agora, siga estas etapas para desenhar o circuito:
+
+#### **a. Desenhe os Flip-Flops**
+- Represente os flip-flops como blocos retangulares.
+- Identifique as entradas (D, J, K, T, etc.) e saídas (Q e \( \overline{Q} \)).
+
+#### **b. Conecte as Entradas e Saídas**
+- Use linhas para conectar as entradas dos flip-flops às portas lógicas ou ao clock.
+- Conecte as saídas dos flip-flops às entradas de outros flip-flops ou às saídas do circuito.
+
+#### **c. Adicione o Clock**
+- Desenhe o sinal de clock e conecte-o aos flip-flops que precisam de sincronização.
+
+#### **d. Inclua Portas Lógicas**
+- Use portas lógicas para implementar a lógica de controle do circuito.
+- Por exemplo, se você está projetando um contador, use portas AND e OR para controlar quando os flip-flops devem mudar de estado.
+
+#### **e. Identifique as Saídas**
+- Desenhe as saídas do circuito e conecte-as aos flip-flops ou portas lógicas.
+
+---
+
+### **5. Exemplo Prático: Contador Binário de 2 Bits**
+Vamos desenhar um contador binário de 2 bits usando flip-flops JK.
+
+#### **a. Tabela de Estados**
+| **Estado Atual (Q1 Q0)** | **Próximo Estado (Q1⁺ Q0⁺)** |
+|--------------------------|------------------------------|
+| 00                       | 01                           |
+| 01                       | 10                           |
+| 10                       | 11                           |
+| 11                       | 00                           |
+
+#### **b. Diagrama do Circuito**
+1. Desenhe dois flip-flops JK (um para cada bit: Q1 e Q0).
+2. Conecte o clock aos dois flip-flops.
+3. Use portas lógicas para implementar a lógica de contagem:
+   - Para Q0: \( J = 1 \), \( K = 1 \) (toggle a cada pulso de clock).
+   - Para Q1: \( J = Q0 \), \( K = Q0 \) (muda apenas quando Q0 é 1).
+4. Conecte as saídas Q1 e Q0 às saídas do circuito.
+
+---
+
+### **Dicas para Desenhar no Papel**
+- Use **símbolos padrão** para flip-flops e portas lógicas.
+- Mantenha o layout organizado, com entradas à esquerda e saídas à direita.
+- Use cores diferentes para diferenciar sinais de clock, entradas e saídas.
+- Anote as equações lógicas ao lado do circuito, se necessário.
+
+---
+
